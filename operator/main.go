@@ -4,5 +4,5 @@ package main
 import "log"
 
 func main() {
-	log.Printf("test: %q", "test")
+	log.Printf("This will be the operator starting point")
 }
