@@ -9,6 +9,10 @@
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 
+	"containerEnv": {
+		"SSH_AUTH_SOCK": "{localEnv:SSH_AUTH_SOCK}",
+	},
+
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"golang.go",
