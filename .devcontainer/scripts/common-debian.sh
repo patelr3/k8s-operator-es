@@ -37,6 +37,7 @@ PACKAGE_LIST="apt-utils \
     psmisc \
     curl \
     wget \
+    build-essential \
     rsync \
     ca-certificates \
     unzip \

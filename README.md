@@ -22,3 +22,6 @@ This section will detail instructions on setting up kubernetes in different envi
 ### Minikube
 1. Update `.devcontainer` for minikube. See [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#how-it-works--adapting-your-existing-dev-container-config).
 2. Please refer to VS Code's warnings for using minikube in anywhere other than Linux [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#a-note-on-minkube-or-otherwise-using-a-local-cluster).
+
+## Setting up Operator Framework
+1. Follow steps [here](https://sdk.operatorframework.io/docs/building-operators/golang/quickstart/).
