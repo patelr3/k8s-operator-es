@@ -23,5 +23,9 @@ This section will detail instructions on setting up kubernetes in different envi
 1. Update `.devcontainer` for minikube. See [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#how-it-works--adapting-your-existing-dev-container-config).
 2. Please refer to VS Code's warnings for using minikube in anywhere other than Linux [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#a-note-on-minkube-or-otherwise-using-a-local-cluster).
 
-## Setting up Operator Framework
+## Building the memcache operator
 1. Follow steps [here](https://sdk.operatorframework.io/docs/building-operators/golang/quickstart/).
+2. See docker image [here](https://hub.docker.com/r/patelr3/memcached-operator).
+
+## Trying the operator
+1. Follow steps [here](https://hub.docker.com/r/patelr3/memcached-operator).
