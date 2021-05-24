@@ -23,19 +23,23 @@ RUN LATEST_COMPOSE_VERSION=$(curl -sSL "https://api.github.com/repos/docker/comp
     && curl -sSL "https://github.com/docker/compose/releases/download/${LATEST_COMPOSE_VERSION}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
+# Install kubectl
+RUN curl -sSL -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl \
+    && chmod +x /usr/local/bin/kubectl
+
+# Install Helm
+RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 && \
+    chmod 700 get_helm.sh && \
+    ./get_helm.sh
+
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN bash /tmp/scripts/common-debian.sh \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
-
-# Install VS Code onto docker image
-RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg \
-    && install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/ \
-    && sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list' \
-    && rm -f packages.microsoft.gpg \
-    && apt update \
-    && apt install -y code 
 
 # Install Go tools
 ENV GO111MODULE=auto
 RUN bash /tmp/scripts/go-debian.sh \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
+
+COPY scripts/copy-kube-config.sh /usr/local/share/
+RUN echo "source /usr/local/share/copy-kube-config.sh" | tee -a /root/.bashrc

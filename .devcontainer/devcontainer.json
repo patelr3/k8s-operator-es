@@ -13,15 +13,24 @@
 		"SSH_AUTH_SOCK": "{localEnv:SSH_AUTH_SOCK}",
 	},
 
+	"remoteEnv": {
+		"SYNC_LOCALHOST_KUBECONFIG": "true"
+	},
+
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"golang.go",
-		"ms-azuretools.vscode-docker"
+		"ms-azuretools.vscode-docker",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"mindaro.mindaro",
+		"eamodio.gitlens",
+		"donjayamanne.githistory",
+		"waderyan.gitblame",
 	],
 
 	"runArgs": ["--init"],
-	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ]
-
+	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+				"source=${env:HOME}${env:USERPROFILE}/.kube,target=/usr/local/share/kube-localhost,type=bind" ],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
