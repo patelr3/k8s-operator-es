@@ -25,7 +25,7 @@ This section will detail instructions on setting up kubernetes in different envi
 
 ## Building the memcache operator
 1. Follow steps [here](https://sdk.operatorframework.io/docs/building-operators/golang/quickstart/).
-2. See docker image [here](https://hub.docker.com/r/patelr3/memcached-operator).
+2. See docker image [here](https://docker.io/r/patelr3/memcached-operator).
 
 ## Trying the operator
-1. Follow steps [here](https://hub.docker.com/r/patelr3/memcached-operator).
+1. Follow steps [here](https://docker.io/r/patelr3/memcached-operator).

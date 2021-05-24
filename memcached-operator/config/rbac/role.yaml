@@ -7,7 +7,7 @@ metadata:
   name: manager-role
 rules:
 - apiGroups:
-  - cache.hub.docker.com
+  - cache.docker.io
   resources:
   - memcacheds
   verbs:
@@ -19,13 +19,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - cache.hub.docker.com
+  - cache.docker.io
   resources:
   - memcacheds/finalizers
   verbs:
   - update
 - apiGroups:
-  - cache.hub.docker.com
+  - cache.docker.io
   resources:
   - memcacheds/status
   verbs:

@@ -1,4 +1,4 @@
-apiVersion: cache.hub.docker.com/v1alpha1
+apiVersion: cache.docker.io/v1alpha1
 kind: Memcached
 metadata:
   name: memcached-sample

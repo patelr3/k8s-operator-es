@@ -8,4 +8,4 @@ webhook:
   port: 9443
 leaderElection:
   leaderElect: true
-  resourceName: c14f8b18.hub.docker.com
+  resourceName: c14f8b18.docker.io

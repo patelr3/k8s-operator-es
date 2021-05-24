@@ -5,7 +5,7 @@ metadata:
   name: memcached-viewer-role
 rules:
 - apiGroups:
-  - cache.hub.docker.com
+  - cache.docker.io
   resources:
   - memcacheds
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - cache.hub.docker.com
+  - cache.docker.io
   resources:
   - memcacheds/status
   verbs:

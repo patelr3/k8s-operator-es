@@ -1,4 +1,4 @@
-domain: hub.docker.com
+domain: docker.io
 layout:
 - go.kubebuilder.io/v3
 plugins:
@@ -11,7 +11,7 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: hub.docker.com
+  domain: docker.io
   group: cache
   kind: Memcached
   path: github.com/patelr3/k8s-operator-es/api/v1alpha1
