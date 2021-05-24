@@ -11,10 +11,14 @@ This section will detail instructions on setting up an ssh agent for use in dev 
 2. Make sure the setting "Terminal-> Integrated: Inherit Env" is on in VS Code in User settings. This is from [these steps](https://code.visualstudio.com/docs/remote/containers-advanced#_adding-environment-variables). You don't need to follow Option 1 as it is already checked in.
 
 ## Setting up Kubernetes
-This section will detail instructions on setting up kubernetes in different environments.
-### Kubernetes in Docker Desktop
+This section will detail instructions on setting up kubernetes in different environments. The devcontainer will copy your local `$HOME/.kube/config` into the container to use with `kubectl`. Below are some tips when setting up certain distro's of kubernetes to ensure the `.kube/config` is setup appropriately to be used in the docker container.
+### Kubernetes in Docker Desktop (Quickest Setup)
 1. Deploy Kubernetes through [Docker Desktop](https://docs.docker.com/desktop/kubernetes/).
 2. Once the container is started, navigate to the K8s extension and ensure your `.kubeconfig` points to `/root/.kube/config`
 
+### Kubeadm (Recommended for Production Code Developing)
+1. TODO: Setup kubeadm and test `kubectl` with the cluster.
+
 ### Minikube
-1. Please refer to VS Code's warnings for using minikube in anywhere other than Linux [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#a-note-on-minkube-or-otherwise-using-a-local-cluster).
+1. Update `.devcontainer` for minikube. See [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#how-it-works--adapting-your-existing-dev-container-config).
+2. Please refer to VS Code's warnings for using minikube in anywhere other than Linux [here](https://github.com/Microsoft/vscode-dev-containers/tree/master/containers/kubernetes-helm#a-note-on-minkube-or-otherwise-using-a-local-cluster).
