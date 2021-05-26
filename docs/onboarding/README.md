@@ -15,3 +15,26 @@ It should be noted that this section assumes you are cloning the repository loca
 4. Follow the pop-up to use Remote - Containers or run Ctrl+Shift+P, and select "Remote-Containers: Open in Container".
 5. Wait for the Development Container to build, and then you should be ready to develop!
 6. [Optional] Open the code workspace in `memcached-operator/workspace.code-workspace`.
+
+## 2.b. Use VS Code Development Containers via Remote Docker Host [Not Recommended]
+Using this approach causes certain issues and hasn't been solved by the Remote-Extensions community with a straightforward solution just yet. See [this issue](https://github.com/microsoft/vscode-remote-release/issues/2994) for more details. **BUT** there is a workaround if you would like to use this approach. The main difference here is that you will run the docker development container on a remote machine rather than your local one. The approach below follows the steps [here](https://code.visualstudio.com/docs/remote/containers-advanced#_developing-inside-a-container-on-a-remote-docker-host).
+
+1. Decide [which approach](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container) you will use for git credentials. If you are using ssh, make sure to follow the correct steps start the [ssh-agent](https://code.visualstudio.com/docs/remote/containers#_using-ssh-keys) and add your ssh key. Do this on the remote machine.
+2. Clone the repository on the remote machine AND the local machine.
+3. Tell the VS Code docker extension to use your remote machine's docker host instead by adding a VS Code setting. See [here](https://code.visualstudio.com/docs/remote/containers-advanced#_a-basic-remote-example).
+```
+"docker.host":"ssh://your-remote-user@your-remote-machine-fqdn-or-ip-here"
+
+```
+4. Make the necessary changes to the `k8s-operator-es/.devcontainer/.devcontainer.json` file. DO NOT check in these changes. If you want to be safe, add the `.devcontainer` path to your `k8s-operator-es/.git/info/exclude` file.
+  1. Add the workspace mount. For `workspaceMount`, use the absolute path on the remote machine to the cloned git repository i.e. `/home/user/git-repos/k8s-operator-es`.
+```
+{
+"workspaceFolder": "/workspace",
+"workspaceMount": "source=/absolute/path/on/remote/machine/to/repo,target=/workspace,type=bind,consistency=cached"
+}
+```
+5. Run the **Remote-Containers: Reopen Folder in Container** command from the Command Palette (F1) or **Remote-Containers: Rebuild Container**. You might need to select the folder on the local machine with the git repository cloned. 
+6. Wait for container to build.
+7. You should be ready to go!
+
