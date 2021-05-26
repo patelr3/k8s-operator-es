@@ -11,17 +11,6 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
-# Function to call apt-get if needed
-apt-get-update-if-needed()
-{
-    if [ ! -d "/var/lib/apt/lists" ] || [ "$(ls /var/lib/apt/lists/ | wc -l)" = "0" ]; then
-        echo "Running apt-get update..."
-        apt-get update
-    else
-        echo "Skipping apt-get update."
-    fi
-}
-
 apt-get update
 
 # Run install apt-utils to avoid debconf warning then verify presence of other common developer tools and dependencies
@@ -43,7 +32,7 @@ PACKAGE_LIST="apt-utils \
     unzip \
     zip \
     nano \
-    vim-tiny \
+    vim \
     less \
     jq \
     lsb-release \
