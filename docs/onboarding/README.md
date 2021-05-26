@@ -14,3 +14,4 @@ It should be noted that this section assumes you are cloning the repository loca
 3. Set up your git identity i.e. `git config user.email "user@example.com"` and `git config user.name "First Last"`
 4. Follow the pop-up to use Remote - Containers or run Ctrl+Shift+P, and select "Remote-Containers: Open in Container".
 5. Wait for the Development Container to build, and then you should be ready to develop!
+6. [Optional] Open the code workspace in `memcached-operator/workspace.code-workspace`.
