@@ -1,5 +1,5 @@
 # Development Container Setup
-You are able to leverage a VS Code development container that will have all the necessary tools and extensions downloaded for you! Feel free to use the instructions below to set this environment up. Note that there are only particular environments where this works well for now. Particularly starting a development container through ssh is a little tricky at this time.
+You are able to leverage a VS Code development container that will have all the necessary tools and extensions downloaded for you! Feel free to use the instructions below to set this environment up. If you would like to make changes to the development image, use the instructions below the setup here. Note that there is a step "2.b." that you can use in replacement of step 2, but step 2 is advised and preferred.
 
 ## 1. Download the tools
 1. Download [Visual Studio Code](https://code.visualstudio.com/Download). This will be the IDE that we will use.
@@ -38,3 +38,14 @@ Using this approach causes certain issues and hasn't been solved by the Remote-E
 6. Wait for container to build.
 7. You should be ready to go!
 
+## Development Container Changes
+If you would like to make changes to the development container, first briefly go through [VS Code's docs](https://code.visualstudio.com/docs/remote/create-dev-container#_path-to-creating-a-dev-container) about dev container basics.
+
+All the development image contents are defined in the repo's `.devcontainer` folder. There are two main files here.
+- `devcontainer.json`: This defines VS Code settings for the development image, including which image or Dockerfile to use to build the development image. You can add VS Code extensions and other settings here.
+- `Dockerfile`: This defines the image to use for the development image. Common tools are installed here such as `go`, `operatorsdk`, etc.
+
+As part of the Dockerfile, there are three scripts that are used to facilitate building the docker image. You can update these scripts too if you'd like. They are located in `.devcontainer/scripts`.
+- `common-debian.sh`: Installs common tools into the image via `apt-get`.
+- `copy-kube-config.sh`: Copy's and syncs the user's local `.kube/config` with the container's.
+- `go-debian.sh`: Installs Go tooling at the appropriate paths.
