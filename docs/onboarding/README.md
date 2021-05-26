@@ -49,3 +49,6 @@ As part of the Dockerfile, there are three scripts that are used to facilitate b
 - `common-debian.sh`: Installs common tools into the image via `apt-get`.
 - `copy-kube-config.sh`: Copy's and syncs the user's local `.kube/config` with the container's.
 - `go-debian.sh`: Installs Go tooling at the appropriate paths.
+
+## Issues with Development Container
+If you are having issues with the development container, refer to the [Troubleshooting Guide](./Troubleshooting.md). There are some quick troubleshooting tips there.
