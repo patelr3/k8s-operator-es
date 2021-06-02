@@ -37,7 +37,7 @@ RUN export ARCH=$(case $(uname -m) in x86_64) echo -n amd64 ;; aarch64) echo -n 
     export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.7.2 && \
     curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH} && \
     chmod +x operator-sdk_${OS}_${ARCH} && \
-    sudo mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
+    mv operator-sdk_${OS}_${ARCH} /usr/local/bin/operator-sdk
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN bash /tmp/scripts/common-debian.sh \
