@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "cronjob-operator"
+		},
+		{
+			"path": "memcached-operator"
+		}
+	],
+}
