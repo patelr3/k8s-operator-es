@@ -40,12 +40,12 @@ Different K8s types are implemented here. In this operator, there is:
 
 The rest of the files are extra generated code or test files.
 
-### controllers
+### `controllers`
 This contains the actual control loop logic/reconciliation logic of the operator. There can be multiple controllers for an operator. The rule of thumb is usually one control loop per custom resource.
 
 - `cronjob_controller.go`: Contains the reconciliation logic for a cron job. This is the bulk of the logic for an operator.
 
-### config
+### `config`
 
 This folder contains various kubernetes manifest files to use for an operator, including sample or test manifests to use during development.
 
