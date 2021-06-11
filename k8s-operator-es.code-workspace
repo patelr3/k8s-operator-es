@@ -10,4 +10,7 @@
 			"path": "memcached-operator"
 		}
 	],
+	"settings": {
+		"go.gopath": "/go",
+	}
 }
